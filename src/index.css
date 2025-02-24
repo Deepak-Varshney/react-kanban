@@ -1,0 +1,260 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f0f2f5, #e0e7ff);
+  margin: 0;
+  padding: 0;
+}
+
+.kanban-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.headersection {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-bar {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.search-bar:focus {
+  border-color: #4caf50;
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #4caf50;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.columns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px;
+  padding: 10px;
+  background: linear-gradient(to bottom, #fff, #f9f9f9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.column.dragged-over {
+  background-color: #e0f7fa;
+}
+
+.column:hover {
+  transform: scale(1.05);
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.task:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task.dragged-preview {
+  opacity: 0.5;
+}
+
+.task button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task button:hover {
+  background-color: #d32f2f;
+}
+
+.undo {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.undo .ring {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.undo button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.undo button:hover {
+  text-decoration: underline;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 90%;
+  width: 400px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input,
+.form select,
+.form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .headersection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar,
+  input {
+    width: 100%;
+  }
+
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task button {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
